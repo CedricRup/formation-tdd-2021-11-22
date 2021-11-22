@@ -25,9 +25,11 @@ public class Grille {
     }
 
     public boolean ajouterJeton(int colonne, CouleurJeton couleurJeton) {
-    	
+        if (colonne >= colonneMaximum || colonne < 0) {
+            return false;
+        }
     	List<StatutCase> laColonne = colonnes.get(colonne);
-    	
+
         if (laColonne.size() >= ligneMaximum) {
             return false;
         }

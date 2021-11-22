@@ -67,13 +67,46 @@ public class GrilleTest {
     
     @Test
     public void On_peut_ajouter_un_jeton_en_colonne1() {
-    	
         Grille maGrille = new Grille();
         maGrille.ajouterJeton(1, CouleurJeton.ROUGE);
         
         Assertions.assertEquals(StatutCase.VIDE, maGrille.statutCase(0, 0));
         Assertions.assertEquals(StatutCase.ROUGE, maGrille.statutCase(1, 0));
-        
     }
+
+    @Test
+    public void On_peut_ajouter_un_jeton_en_colonne6() {
+        Grille maGrille = new Grille();
+        maGrille.ajouterJeton(6, CouleurJeton.ROUGE);
+
+        Assertions.assertEquals(StatutCase.ROUGE, maGrille.statutCase(6, 0));
+    }
+
+    @Test
+    public void On_ne_peut_pas_ajouter_un_jeton_en_colonne7() {
+        Grille maGrille = new Grille();
+        boolean reussite = maGrille.ajouterJeton(7, CouleurJeton.JAUNE);
+
+        Assertions.assertFalse(reussite);
+    }
+
+    @Test
+    public void On_ne_peut_pas_ajouter_un_jeton_en_colonne_moins1() {
+        Grille maGrille = new Grille();
+        boolean reussite = maGrille.ajouterJeton(-1, CouleurJeton.JAUNE);
+
+        Assertions.assertFalse(reussite);
+    }
+
+    @Test
+    public void Si_on_lit_en_colonne_moins1_on_obtient_HORS_GRILLE() {
+        Grille maGrille = new Grille();
+        StatutCase statutCase = maGrille.statutCase(-1, 0);
+
+        Assertions.assertEquals(StatutCase.HORS_GRILLE, statutCase);
+    }
+
+
+
     
 }
