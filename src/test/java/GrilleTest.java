@@ -30,7 +30,6 @@ public class GrilleTest {
         Assertions.assertEquals(StatutCase.VIDE,valeurReelle);
     }
 
-
     @Test
     public void Si_On_Ajoute_En_0_Sur_Un_Pion_Existant_Alors_Le_Statut_De_La_Case_0_1_Est_Rouge(){
         Grille maGrille = new Grille();
