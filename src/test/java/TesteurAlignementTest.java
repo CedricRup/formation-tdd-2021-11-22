@@ -76,5 +76,18 @@ public class TesteurAlignementTest {
 
         Assertions.assertEquals(CouleurAlignement.AUCUN, alignement);
     }
+
+    @Test
+    void il_faut_4_jeton_rouge_de_suite_dans_unes_colonnes() throws Exception {
+        Grille grille = new Grille();
+        grille.ajouterJeton(0, CouleurJeton.ROUGE);
+        grille.ajouterJeton(0, CouleurJeton.JAUNE);
+        grille.ajouterJeton(0, CouleurJeton.JAUNE);
+        grille.ajouterJeton(0, CouleurJeton.JAUNE);
+
+        CouleurAlignement alignement = TesteurAlignement.testerGrille(grille);
+
+        Assertions.assertEquals(CouleurAlignement.AUCUN, alignement);
+    }
    
 }

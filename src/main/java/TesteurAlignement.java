@@ -3,15 +3,19 @@ public class TesteurAlignement {
 
     public static CouleurAlignement testerGrille(Grille grille) {
 
-        if (grille.statutCase(0, 3) == StatutCase.ROUGE && grille.statutCase(0, 2) == StatutCase.ROUGE) {
+        if (testerColonne(grille, StatutCase.ROUGE)) {
             return CouleurAlignement.ROUGE;
         }
 
-        if (grille.statutCase(0, 3) == StatutCase.JAUNE) {
+        if (testerColonne(grille, StatutCase.JAUNE)) {
             return CouleurAlignement.JAUNE;
         }
         
         return CouleurAlignement.AUCUN;
+    }
+
+    private static boolean testerColonne(Grille grille, StatutCase statutCase) {
+        return grille.statutCase(0, 3) == statutCase && grille.statutCase(0, 2) == statutCase && grille.statutCase(0, 1) == statutCase;
     }
 
 }
