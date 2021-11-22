@@ -1,3 +1,3 @@
 public enum StatutCase {
-    ROUGE
+    VIDE, JAUNE, ROUGE
 }
