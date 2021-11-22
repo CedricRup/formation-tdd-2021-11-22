@@ -106,7 +106,27 @@ public class GrilleTest {
         Assertions.assertEquals(StatutCase.HORS_GRILLE, statutCase);
     }
 
+    @Test
+    public void Si_on_lit_en_colonne_7_on_obtient_HORS_GRILLE() {
+        Grille maGrille = new Grille();
+        StatutCase statutCase = maGrille.statutCase(7, 0);
 
+        Assertions.assertEquals(StatutCase.HORS_GRILLE, statutCase);
+    }
 
-    
+    @Test
+    public void Si_on_lit_en_ligne_6_on_obtient_HORS_GRILLE() {
+        Grille maGrille = new Grille();
+        StatutCase statutCase = maGrille.statutCase(0, 6);
+
+        Assertions.assertEquals(StatutCase.HORS_GRILLE, statutCase);
+    }
+
+    @Test
+    public void Si_on_lit_en_ligne_moins1_on_obtient_HORS_GRILLE() {
+        Grille maGrille = new Grille();
+        StatutCase statutCase = maGrille.statutCase(0, -1);
+
+        Assertions.assertEquals(StatutCase.HORS_GRILLE, statutCase);
+    }
 }
