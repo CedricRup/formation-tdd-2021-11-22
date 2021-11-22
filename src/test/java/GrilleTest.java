@@ -26,7 +26,7 @@ public class GrilleTest {
     public void Si_On_A_Pas_De_Pion_Dans_Une_Case_elle_Est_Vide() {
         Grille maGrille = new Grille();
 
-        StatutCase valeurReelle = maGrille.statutCase(0, 1);
+        StatutCase valeurReelle = maGrille.statutCase(0, 0);
         Assertions.assertEquals(StatutCase.VIDE, valeurReelle);
     }
 
@@ -64,4 +64,16 @@ public class GrilleTest {
 
         Assertions.assertFalse(reussite);
     }
+    
+    @Test
+    public void On_peut_ajouter_un_jeton_en_colonne1() {
+    	
+        Grille maGrille = new Grille();
+        maGrille.ajouterJeton(1, CouleurJeton.ROUGE);
+        
+        Assertions.assertEquals(StatutCase.VIDE, maGrille.statutCase(0, 0));
+        Assertions.assertEquals(StatutCase.ROUGE, maGrille.statutCase(1, 0));
+        
+    }
+    
 }
