@@ -1,5 +1,5 @@
 
 public enum CouleurAlignement {
-    AUCUN, ROUGE;
+    AUCUN, ROUGE, JAUNE;
 
 }
