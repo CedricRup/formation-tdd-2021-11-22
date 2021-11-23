@@ -1,3 +1,3 @@
 public enum StatutPartie {
-    JAUNE
+    ROUGE, EN_COURS, JAUNE
 }

@@ -80,11 +80,33 @@ public class ArbitreTest {
         arbitre.jouer(0);
         arbitre.jouer(1);
         arbitre.jouer(0);
-        arbitre.jouer(1);
 
         Assertions.assertEquals(StatutPartie.JAUNE, arbitre.getStatutPartie());
     }
 
+    @Test
+    void si_le_joueur_rouge_place_un_jeton_gagnant_il_gagne() {
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(2);
+        arbitre.jouer(1);
 
+        Assertions.assertEquals(StatutPartie.ROUGE, arbitre.getStatutPartie());
+    }
 
+    @Test
+    void si_un_joueur_place_un_jeton_non_gagnant_la_partie_est_toujours_en_cours() {
+        arbitre.jouer(0);
+
+        Assertions.assertEquals(StatutPartie.EN_COURS, arbitre.getStatutPartie());
+    }
+
+    @Test
+    void la_partie_commence_en_cours() {
+        Assertions.assertEquals(StatutPartie.EN_COURS, arbitre.getStatutPartie());
+    }
 }
