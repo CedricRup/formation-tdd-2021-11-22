@@ -133,4 +133,43 @@ public class TesteurAlignementTest {
         Assertions.assertEquals(CouleurAlignement.ROUGE, alignement);
     }
 
+    @Test
+    void il_faut_4_jeton_rouge_de_suite_dans_la_colonne2() throws Exception {
+        Grille grille = new Grille();
+        grille.ajouterJeton(2, CouleurJeton.ROUGE);
+        grille.ajouterJeton(2, CouleurJeton.ROUGE);
+        grille.ajouterJeton(2, CouleurJeton.ROUGE);
+        grille.ajouterJeton(2, CouleurJeton.ROUGE);
+
+        CouleurAlignement alignement = TesteurAlignement.testerGrille(grille);
+
+        Assertions.assertEquals(CouleurAlignement.ROUGE, alignement);
+    }
+
+    @Test
+    void il_faut_4_jeton_rouge_de_suite_dans_la_colonne6() throws Exception {
+        Grille grille = new Grille();
+        grille.ajouterJeton(6, CouleurJeton.ROUGE);
+        grille.ajouterJeton(6, CouleurJeton.ROUGE);
+        grille.ajouterJeton(6, CouleurJeton.ROUGE);
+        grille.ajouterJeton(6, CouleurJeton.ROUGE);
+
+        CouleurAlignement alignement = TesteurAlignement.testerGrille(grille);
+
+        Assertions.assertEquals(CouleurAlignement.ROUGE, alignement);
+    }
+
+    @Test
+    void il_faut_4_jeton_jaune_de_suite_dans_la_colonne6() throws Exception {
+        Grille grille = new Grille();
+        grille.ajouterJeton(6, CouleurJeton.JAUNE);
+        grille.ajouterJeton(6, CouleurJeton.JAUNE);
+        grille.ajouterJeton(6, CouleurJeton.JAUNE);
+        grille.ajouterJeton(6, CouleurJeton.JAUNE);
+
+        CouleurAlignement alignement = TesteurAlignement.testerGrille(grille);
+
+        Assertions.assertEquals(CouleurAlignement.JAUNE, alignement);
+    }
+
 }
