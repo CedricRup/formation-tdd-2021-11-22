@@ -13,6 +13,10 @@ public class Ihm {
 
     public void nouvellePartie() {
         afficheur.afficher("joueur en cours : Jaune");
+        arbitre.jouer(lecteur.lire() - 1);
+        afficheur.afficher("joueur en cours : Rouge");
+        arbitre.jouer(lecteur.lire() - 1);
+        afficheur.afficher("joueur en cours : Jaune");
     }
 
 }
