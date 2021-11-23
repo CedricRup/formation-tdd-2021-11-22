@@ -15,7 +15,25 @@ public class TesteurAlignement {
     }
 
     private static boolean testerColonne(Grille grille, StatutCase statutCase) {
-        return grille.statutCase(0, 3) == statutCase && grille.statutCase(0, 2) == statutCase && grille.statutCase(0, 1) == statutCase;
+    	return extracted(grille, statutCase) || extracted2(grille, statutCase);
     }
+
+	private static boolean extracted(Grille grille, StatutCase statutCase) {
+		for (int i =0; i < 4; i++ ) {
+    		if ( grille.statutCase(0, i) != statutCase) {
+    			return false;
+    		}
+    	}
+		return true;
+	}
+	
+	private static boolean extracted2(Grille grille, StatutCase statutCase) {
+		for (int i =1; i < 5; i++ ) {
+    		if ( grille.statutCase(0, i) != statutCase) {
+    			return false;
+    		}
+    	}
+		return true;
+	}
 
 }
