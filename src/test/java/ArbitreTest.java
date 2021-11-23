@@ -3,16 +3,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ArbitreTest {
-	
-	private Arbitre arbitre;
-	private Grille grille;
-	
-	@BeforeEach
-	public void setup() {
-		grille = new Grille();
-		arbitre = new Arbitre(grille);
-	}
-	
+
+    private Arbitre arbitre;
+    private Grille grille;
+
+    @BeforeEach
+    public void setup() {
+        grille = new Grille();
+        arbitre = new Arbitre(grille);
+    }
+
     @Test
     public void Jaune_joue_en_premier() {
 
@@ -46,15 +46,30 @@ public class ArbitreTest {
 
         Assertions.assertEquals(CouleurJeton.JAUNE, arbitre.getJoueurEnCours());
     }
-    
-    // @Test
-    public void verfier_arbitre_bon_boulot() {
 
-        int colonne = -1;
+    @Test
+    public void verfier_arbitre_bon_boulot() {
+        Assertions.assertEquals(StatutCase.VIDE, grille.statutCase(0, 0));
+
+        int colonne = 0;
         arbitre.jouer(colonne);
 
-        Assertions.assertEquals(CouleurJeton.JAUNE, arbitre.getJoueurEnCours());
+        Assertions.assertEquals(StatutCase.JAUNE, grille.statutCase(0, 0));
     }
-    
-    
+
+    @Test
+    void si_un_joueur_place_un_jeton_gagnant_le_jeu_sarrete() throws Exception {
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+
+        Assertions.assertEquals(StatutCase.VIDE, grille.statutCase(1, 3));
+
+    }
+
 }
