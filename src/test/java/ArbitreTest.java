@@ -58,7 +58,7 @@ public class ArbitreTest {
     }
 
     @Test
-    void si_un_joueur_place_un_jeton_gagnant_le_jeu_sarrete() throws Exception {
+    void si_un_joueur_place_un_jeton_gagnant_le_jeu_sarrete() {
         arbitre.jouer(0);
         arbitre.jouer(1);
         arbitre.jouer(0);
@@ -69,7 +69,22 @@ public class ArbitreTest {
         arbitre.jouer(1);
 
         Assertions.assertEquals(StatutCase.VIDE, grille.statutCase(1, 3));
-
     }
+
+    @Test
+    void si_le_joueur_jaune_place_un_jeton_gagnant_il_gagne() {
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+        arbitre.jouer(0);
+        arbitre.jouer(1);
+
+        Assertions.assertEquals(StatutPartie.JAUNE, arbitre.getStatutPartie());
+    }
+
+
 
 }
