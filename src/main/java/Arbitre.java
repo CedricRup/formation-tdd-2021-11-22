@@ -1,9 +1,14 @@
 public class Arbitre {
 
     private CouleurJeton joueurEnCours = CouleurJeton.JAUNE;
-    private Grille grille = new Grille();
+    private Grille grille ;
+    
+    public Arbitre(Grille grille) {
+		super();
+		this.grille = grille;
+	}
 
-    public CouleurJeton getJoueurEnCours() {
+	public CouleurJeton getJoueurEnCours() {
         return joueurEnCours;
     }
 
